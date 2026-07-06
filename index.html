@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CELESTIA 2077 — 세계관 소개</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1c2b3a;
+  --ink-soft:#4a5d70;
+  --ink-faint:#8496a8;
+  --paper:#f6f9fc;
+  --white:#ffffff;
+  --sky:#7cb9e8;
+  --sky-deep:#3d7fc1;
+  --gold:#c2a25a;
+  --gold-deep:#a3833c;
+  --night:#0d1522;
+  --night-soft:#162132;
+  --night-line:#28374e;
+  --glow:#8fd0ff;
+  --danger:#e06a6a;
+  --serif:'Noto Serif KR',serif;
+  --sans:'Noto Sans KR',sans-serif;
+  --latin:'Cormorant Garamond',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.7;font-weight:400}
+img{display:block;max-width:100%}
+::selection{background:rgba(124,185,232,.35)}
+
+/* ───── nav ───── */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(28,43,58,.08)}
+nav .inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:8px;height:56px;overflow-x:auto;scrollbar-width:none}
+nav .inner::-webkit-scrollbar{display:none}
+nav .logo{font-family:var(--latin);font-size:18px;letter-spacing:.22em;font-weight:600;color:var(--ink);margin-right:auto;white-space:nowrap}
+nav .logo b{color:var(--gold-deep)}
+nav a{font-size:13px;color:var(--ink-soft);text-decoration:none;padding:6px 12px;border-radius:20px;white-space:nowrap;transition:.2s}
+nav a:hover{background:rgba(124,185,232,.15);color:var(--sky-deep)}
+
+/* ───── hero ───── */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden;color:#fff}
+.hero .bg{position:absolute;inset:0;background:url('셀레스티아전경1.webp') center/cover no-repeat;transform:scale(1.02)}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,28,48,.15) 0%,rgba(13,28,48,0) 35%,rgba(10,22,40,.78) 100%)}
+.hero .inner{position:relative;max-width:1100px;margin:0 auto;padding:0 24px 88px;width:100%}
+.hero .year{font-family:var(--latin);font-size:15px;letter-spacing:.55em;opacity:.85;margin-bottom:14px}
+.hero h1{font-family:var(--latin);font-size:clamp(52px,9vw,110px);font-weight:500;letter-spacing:.14em;line-height:1;text-shadow:0 4px 40px rgba(0,30,70,.45)}
+.hero .sub{font-family:var(--serif);font-size:clamp(15px,2vw,19px);margin-top:20px;font-weight:400;opacity:.95;max-width:560px;text-shadow:0 2px 20px rgba(0,30,70,.6)}
+.hero .tags{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.hero .tags span{font-size:12px;letter-spacing:.08em;padding:6px 16px;border:1px solid rgba(255,255,255,.45);border-radius:20px;backdrop-filter:blur(6px);background:rgba(255,255,255,.08)}
+.hero .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;opacity:.7;animation:float 2.4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+/* ───── common layout ───── */
+section{padding:96px 24px}
+.wrap{max-width:1100px;margin:0 auto}
+.sec-label{font-family:var(--latin);font-size:13px;letter-spacing:.45em;color:var(--gold-deep);margin-bottom:12px;text-transform:uppercase}
+.sec-title{font-family:var(--serif);font-size:clamp(26px,4vw,38px);font-weight:700;margin-bottom:14px}
+.sec-desc{color:var(--ink-soft);max-width:640px;font-size:15px}
+.divider{width:56px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:22px 0 44px}
+
+/* ───── intro ───── */
+.intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.intro-text p{margin-bottom:18px;font-size:15.5px;color:var(--ink-soft)}
+.intro-text p strong{color:var(--ink);font-weight:700}
+.intro-text .pull{font-family:var(--serif);font-size:19px;color:var(--ink);border-left:3px solid var(--gold);padding:6px 0 6px 20px;margin:26px 0;font-weight:600;line-height:1.75}
+.intro-img{border-radius:18px;overflow:hidden;box-shadow:0 24px 60px -20px rgba(61,127,193,.4);position:relative}
+.intro-img::after{content:'';position:absolute;inset:0;border-radius:18px;border:1px solid rgba(255,255,255,.5);pointer-events:none}
+.intro-img img{width:100%;height:100%;object-fit:cover}
+.intro-img figcaption{position:absolute;bottom:0;left:0;right:0;padding:36px 20px 14px;font-size:11.5px;letter-spacing:.12em;color:#fff;background:linear-gradient(transparent,rgba(10,25,45,.7))}
+
+/* timeline */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;position:relative}
+.timeline::before{content:'';position:absolute;top:7px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,var(--sky),var(--gold))}
+.tl-item{text-align:center;padding:0 12px;position:relative}
+.tl-item .dot{width:15px;height:15px;border-radius:50%;background:var(--white);border:3px solid var(--sky-deep);margin:0 auto 16px;position:relative;z-index:1}
+.tl-item:last-child .dot{border-color:var(--gold-deep);background:var(--gold)}
+.tl-item .yr{font-family:var(--latin);font-size:20px;font-weight:600;letter-spacing:.08em}
+.tl-item h4{font-size:14.5px;margin:4px 0 6px;font-weight:700}
+.tl-item p{font-size:12.5px;color:var(--ink-faint);line-height:1.6}
+
+/* ───── keyword cards ───── */
+.bg-alt{background:linear-gradient(180deg,#eef5fb 0%,var(--paper) 100%)}
+.kw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.kw-card{background:var(--white);border-radius:16px;padding:30px 26px;border:1px solid rgba(124,185,232,.25);box-shadow:0 10px 30px -14px rgba(61,127,193,.25);transition:.25s;position:relative;overflow:hidden}
+.kw-card:hover{transform:translateY(-5px);box-shadow:0 20px 44px -14px rgba(61,127,193,.4)}
+.kw-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sky),var(--glow))}
+.kw-card .num{font-family:var(--latin);font-size:13px;letter-spacing:.2em;color:var(--sky-deep);margin-bottom:10px}
+.kw-card h3{font-family:var(--serif);font-size:19px;margin-bottom:4px}
+.kw-card .en{font-family:var(--latin);font-size:12.5px;letter-spacing:.14em;color:var(--ink-faint);margin-bottom:14px}
+.kw-card p{font-size:13.5px;color:var(--ink-soft)}
+.kw-card p b{color:var(--sky-deep)}
+
+/* resonance grade bar */
+.grade-box{margin-top:56px;background:var(--white);border-radius:18px;padding:40px 36px;border:1px solid rgba(124,185,232,.25);box-shadow:0 12px 34px -16px rgba(61,127,193,.28)}
+.grade-box h3{font-family:var(--serif);font-size:20px;margin-bottom:6px}
+.grade-box .note{font-size:13px;color:var(--ink-faint);margin-bottom:28px}
+.grades{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.grade{border-radius:12px;padding:18px 10px;text-align:center;border:1px solid rgba(28,43,58,.08);background:#fbfdff}
+.grade .g{font-family:var(--latin);font-size:30px;font-weight:600;line-height:1}
+.grade .range{font-size:11.5px;color:var(--ink-faint);margin:6px 0 8px;letter-spacing:.05em}
+.grade .desc{font-size:12px;color:var(--ink-soft);line-height:1.5}
+.grade.ex .g{background:linear-gradient(120deg,#b78be8,#6fb7ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grade.s .g{color:var(--gold-deep)}
+.grade.a .g{color:#c96a8d}
+.grade.b .g{color:var(--sky-deep)}
+.grade.c .g{color:#5da080}
+
+/* ───── districts ───── */
+.district-list{display:flex;flex-direction:column;gap:14px}
+.district{display:grid;grid-template-columns:170px 1fr;gap:24px;background:var(--white);border-radius:14px;padding:24px 28px;border:1px solid rgba(28,43,58,.07);align-items:baseline;transition:.2s}
+.district:hover{border-color:rgba(124,185,232,.5)}
+.district h3{font-family:var(--serif);font-size:17.5px}
+.district h3 small{display:block;font-family:var(--latin);font-size:11px;letter-spacing:.18em;color:var(--gold-deep);font-weight:600;margin-top:3px}
+.district p{font-size:13.8px;color:var(--ink-soft)}
+.district.sealed{background:linear-gradient(100deg,#fdf3f3,#fff)}
+.district.sealed h3 small{color:var(--danger)}
+.strata{margin-top:40px;text-align:center;font-family:var(--serif);font-size:16px;color:var(--ink-soft)}
+.strata b{color:var(--ink)}
+
+/* ───── dark sections ───── */
+.dark{background:var(--night);color:#cfe0f2}
+.dark .sec-label{color:var(--glow)}
+.dark .sec-title{color:#fff}
+.dark .sec-desc{color:#8fa5bf}
+.dark .divider{background:linear-gradient(90deg,var(--glow),transparent)}
+.shadow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.shadow-card{background:var(--night-soft);border:1px solid var(--night-line);border-radius:14px;padding:28px 26px;transition:.25s;position:relative}
+.shadow-card:hover{border-color:rgba(143,208,255,.45)}
+.shadow-card h3{font-family:var(--serif);font-size:17.5px;color:#fff;margin-bottom:4px}
+.shadow-card .front{font-size:12px;color:var(--glow);letter-spacing:.06em;margin-bottom:14px}
+.shadow-card p{font-size:13.3px;color:#9db1c9}
+.shadow-card p b{color:#e8c9c9;font-weight:500}
+.dark-quote{margin-top:56px;text-align:center;font-family:var(--serif);font-size:clamp(17px,2.6vw,22px);color:#dce9f7;line-height:2}
+.dark-quote span{color:var(--glow)}
+
+/* deep dive (심층) */
+.deep-hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-bottom:48px}
+.deep-rule{background:var(--night-soft);border:1px solid var(--night-line);border-radius:14px;padding:24px}
+.deep-rule .no{font-family:var(--latin);font-size:13px;letter-spacing:.25em;color:var(--glow);margin-bottom:10px}
+.deep-rule h4{font-size:15px;color:#fff;margin-bottom:8px}
+.deep-rule p{font-size:13px;color:#9db1c9}
+.biome{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.biome-card{border-radius:14px;padding:26px;border:1px solid var(--night-line);position:relative;overflow:hidden}
+.biome-card.casino{background:linear-gradient(150deg,#2a1430,#16101f)}
+.biome-card.factory{background:linear-gradient(150deg,#301818,#1a1010)}
+.biome-card.archive{background:linear-gradient(150deg,#0f2038,#0c1524)}
+.biome-card h3{font-family:var(--serif);font-size:18px;color:#fff}
+.biome-card .en{font-family:var(--latin);font-size:11.5px;letter-spacing:.22em;margin:2px 0 16px;opacity:.6;color:#fff}
+.biome-card p{font-size:13px;color:#b4c3d6;margin-bottom:10px}
+.biome-card p:last-child{margin-bottom:0}
+.biome-card p b{font-weight:500}
+.biome-card.casino b{color:#e8a7d8}
+.biome-card.factory b{color:#f0a08a}
+.biome-card.archive b{color:#8fd0ff}
+
+/* ───── factions ───── */
+.faction-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.faction{background:var(--white);border-radius:16px;padding:30px 26px;border-top:4px solid;box-shadow:0 10px 28px -14px rgba(28,43,58,.18);transition:.25s}
+.faction:hover{transform:translateY(-4px)}
+.faction.f-admin{border-color:var(--gold)}
+.faction.f-police{border-color:var(--sky-deep)}
+.faction.f-academy{border-color:#b03a48}
+.faction.f-guild{border-color:#4f8a6a}
+.faction .en{font-family:var(--latin);font-size:11px;letter-spacing:.24em;color:var(--ink-faint);margin-bottom:8px;text-transform:uppercase}
+.faction h3{font-family:var(--serif);font-size:19px;margin-bottom:12px}
+.faction p{font-size:13.4px;color:var(--ink-soft)}
+
+/* ───── characters ───── */
+.char-section{padding-top:80px}
+.group-head{display:flex;align-items:center;gap:16px;margin:64px 0 28px}
+.group-head:first-of-type{margin-top:48px}
+.group-head .bar{width:34px;height:3px;border-radius:2px}
+.group-head h3{font-family:var(--serif);font-size:22px}
+.group-head .en{font-family:var(--latin);font-size:12px;letter-spacing:.24em;color:var(--ink-faint)}
+.g-police .bar{background:var(--sky-deep)}
+.g-admin .bar{background:var(--gold)}
+.g-academy .bar{background:#b03a48}
+.g-guild .bar{background:#4f8a6a}
+.char-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:22px}
+.char{background:var(--white);border-radius:16px;overflow:hidden;border:1px solid rgba(28,43,58,.08);box-shadow:0 8px 26px -14px rgba(28,43,58,.2);transition:.28s;display:flex;flex-direction:column}
+.char:hover{transform:translateY(-6px);box-shadow:0 22px 44px -16px rgba(61,127,193,.38)}
+.char .photo{aspect-ratio:3/3.4;overflow:hidden;position:relative;background:#eef3f8}
+.char .photo img{width:100%;height:100%;object-fit:cover;object-position:top;transition:.5s}
+.char:hover .photo img{transform:scale(1.05)}
+.char .photo .role{position:absolute;top:12px;left:12px;font-size:10.5px;letter-spacing:.1em;padding:4px 11px;border-radius:14px;color:#fff;backdrop-filter:blur(4px)}
+.r-police{background:rgba(61,127,193,.85)}
+.r-admin{background:rgba(163,131,60,.85)}
+.r-academy{background:rgba(176,58,72,.85)}
+.r-guild{background:rgba(79,138,106,.85)}
+.char .body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+.char .name-row{display:flex;align-items:baseline;gap:8px;margin-bottom:2px}
+.char h4{font-family:var(--serif);font-size:19px}
+.char .meta{font-size:11.5px;color:var(--ink-faint);letter-spacing:.03em}
+.char .epithet{font-size:12.5px;color:var(--sky-deep);font-weight:500;margin-bottom:10px}
+.char .desc{font-size:12.8px;color:var(--ink-soft);flex:1;margin-bottom:14px}
+.char .chips{display:flex;flex-wrap:wrap;gap:6px}
+.char .chips span{font-size:10.5px;padding:3px 10px;border-radius:12px;background:#f0f5fa;color:var(--ink-soft);border:1px solid rgba(28,43,58,.06)}
+.char .chips span.race{background:#fdf6e8;color:var(--gold-deep)}
+.char .chips span.mbti{background:#eef3fb;color:var(--sky-deep);font-family:var(--latin);letter-spacing:.08em;font-weight:600;font-size:11px}
+
+/* ───── footer ───── */
+footer{position:relative;color:#fff;overflow:hidden}
+footer .bg{position:absolute;inset:0;background:url('셀레스티아전경2.webp') center/cover no-repeat}
+footer .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,.75),rgba(10,22,40,.35) 55%,rgba(10,22,40,.8))}
+footer .inner{position:relative;max-width:1100px;margin:0 auto;padding:130px 24px;text-align:center}
+footer .line{font-family:var(--serif);font-size:clamp(18px,3vw,26px);font-weight:600;line-height:2;text-shadow:0 2px 24px rgba(0,20,50,.6)}
+footer .credit{margin-top:44px;font-family:var(--latin);font-size:12px;letter-spacing:.4em;opacity:.75}
+
+/* ───── responsive ───── */
+@media(max-width:860px){
+  .intro-grid{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr 1fr;gap:32px 0}
+  .timeline::before{display:none}
+  .grades{grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
+  .district{grid-template-columns:1fr;gap:8px}
+  section{padding:72px 20px}
+}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <div class="logo">CELESTIA <b>2077</b></div>
+    <a href="#world">세계관</a>
+    <a href="#keywords">핵심 개념</a>
+    <a href="#district">도시 구조</a>
+    <a href="#shadow">도시의 이면</a>
+    <a href="#deep">심층</a>
+    <a href="#faction">진영</a>
+    <a href="#characters">캐릭터</a>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="bg"></div>
+  <div class="veil"></div>
+  <div class="inner">
+    <div class="year">A.D. 2077 · LUXHE FEDERATION</div>
+    <h1>CELESTIA</h1>
+    <p class="sub">구름 위에 떠 있는 가장 아름다운 도시.<br>
+    재난은 일상이 되었고, 도시는 그 어느 때보다 평화롭다 — 적어도, 겉으로는.</p>
+    <div class="tags">
+      <span>웰니스 유토피아 × 사이버펑크</span>
+      <span>공중 부유 도시</span>
+      <span>수인 혼거 사회</span>
+      <span>헌터물 × 도시 생활물</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<!-- ═══════════ WORLD ═══════════ -->
+<section id="world">
+  <div class="wrap">
+    <div class="sec-label">Worldview</div>
+    <h2 class="sec-title">멸망 직전에서, 가장 화려한 시대로</h2>
+    <div class="divider"></div>
+    <div class="intro-grid reveal">
+      <div class="intro-text">
+        <p><strong>2027년, 하늘에 거대한 블랙홀 형태의 공간 — '심층'이 열렸다.</strong>
+        쏟아져 나온 몬스터와 유해 마나로 인류 문명은 붕괴 직전까지 몰렸다. 사람들은 이 시기를 <strong>'대붕괴'</strong>라 부른다.</p>
+        <p>그러나 인류는 과학기술로 재앙을 극복했다. 심층에서 흘러나온 정보성 마나 에너지 <strong>'아카샤'</strong>는 오히려 문명의 핵심 자원이 되었고, 살아남은 도시국가들은 연합해 <strong>르셰 연방</strong>을 세웠다.</p>
+        <p class="pull">그로부터 50년.<br>연방의 수도, 공중 부유 도시 <b>셀레스티아</b>에서는<br>햇빛이 유리 건물에 부서지고, 라멘 집에서 김이 오르고,<br>아이돌의 신곡이 홀로그램 간판을 수놓는다.</p>
+        <p>심층은 여전히 열리고, 에이전트들은 오늘도 그 안으로 뛰어든다. 하지만 도시는 침울하지 않다. 재난이 일상이 된 사회 — 그리고 그 평화로운 일상 아래에는, <strong>은근한 통제</strong>가 흐르고 있다.</p>
+      </div>
+      <figure class="intro-img">
+        <img src="셀레스티아전경2.webp" alt="셀레스티아 거리 풍경">
+        <figcaption>셀레스티아 시가지 — 공중 트램과 파티세리가 있는 일상</figcaption>
+      </figure>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="yr">2027</div>
+        <h4>심층 등장</h4>
+        <p>블랙홀 형태의 공간이 열리고<br>인류는 멸망 직전에 몰린다</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="yr">대붕괴</div>
+        <h4>세계의 재편</h4>
+        <p>마나의 영향으로 수인 등<br>새로운 종족이 탄생한다</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="yr">재건</div>
+        <h4>르셰 연방 수립</h4>
+        <p>생존 도시국가들이 연합,<br>아카샤 기술로 문명을 복구</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="yr">2077</div>
+        <h4>현재 — 셀레스티아</h4>
+        <p>가장 평화롭고, 가장 화려하고,<br>가장 통제된 시대</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ KEYWORDS ═══════════ -->
+<section id="keywords" class="bg-alt">
+  <div class="wrap">
+    <div class="sec-label">Key Concepts</div>
+    <h2 class="sec-title">이 세계를 이해하는 6가지 열쇠</h2>
+    <div class="divider"></div>
+    <div class="kw-grid reveal">
+      <div class="kw-card">
+        <div class="num">01</div>
+        <h3>심층</h3>
+        <div class="en">THE DEPTHS</div>
+        <p>거대한 블랙홀 형태의 이공간. 내부는 인류에 적대적인 몬스터와 유해 마나로 가득하다. 오래 머물면 <b>마나 침식</b>이 진행되어 몬스터로 변모하기에, 공략은 언제나 단기 속전속결.</p>
+      </div>
+      <div class="kw-card">
+        <div class="num">02</div>
+        <h3>아카샤</h3>
+        <div class="en">AKASHA</div>
+        <p>심층에서 유래한 정보성 마나 에너지. 결정화된 <b>원석</b>과 <b>파편</b>은 채굴 자원이며, 셀레스티아 중심부의 거대 처리장치 <b>아카샤 코어</b>가 도시의 행정·방어·에너지를 모두 떠받친다.</p>
+      </div>
+      <div class="kw-card">
+        <div class="num">03</div>
+        <h3>공명률</h3>
+        <div class="en">RESONANCE RATE</div>
+        <p>대붕괴 이후 소수에게 발현된 마나 저항 형질. 0~100점으로 측정하며 <b>50점 이상</b>이 적합 판정. 수치가 높을수록 신체 능력이 인간의 범주를 벗어나 초능력이 발현된다.</p>
+      </div>
+      <div class="kw-card">
+        <div class="num">04</div>
+        <h3>에이전트</h3>
+        <div class="en">AGENT</div>
+        <p>높은 공명률 + 훈련 + 등급 심사를 통과한 전투 요원. 일반 무기는 마나에 부식되기에 <b>마나 입자 반응 특수무기</b>를 쓴다. 출력은 공명률과 정신 상태에 따라 변하고, 때로 예상 밖의 기적을 일으킨다.</p>
+      </div>
+      <div class="kw-card">
+        <div class="num">05</div>
+        <h3>수인</h3>
+        <div class="en">BEASTFOLK</div>
+        <p>대붕괴 후 마나의 영향으로 탄생한 종족. 인간 귀와 머리 위 <b>수이(獸耳)</b>가 공존하는 것이 정상 생리 구조로, 수이는 마나의 흐름·기척·감정을 감지하는 공명 기관이다. 인간과 자연스럽게 혼거한다.</p>
+      </div>
+      <div class="kw-card">
+        <div class="num">06</div>
+        <h3>침식</h3>
+        <div class="en">EROSION</div>
+        <p>심층의 마나에 장기 노출되면 진행되는 변이. 피부 아래 <b>별빛처럼 발광하는 균열</b>이 나타나면 위험 신호다. 침식이 완료되면 — 더는 인간이 아니다.</p>
+      </div>
+    </div>
+
+    <div class="grade-box reveal">
+      <h3>공명 등급</h3>
+      <p class="note">자가 키트로 측정 가능하나, 심층 입장 허가에는 공공기관 증명서가 필요하다.</p>
+      <div class="grades">
+        <div class="grade ex"><div class="g">EX</div><div class="range">100</div><div class="desc">공식 사례 없음<br>이론상의 수치</div></div>
+        <div class="grade s"><div class="g">S</div><div class="range">90 – 99</div><div class="desc">최상위 에이전트<br>고위험 심층 투입</div></div>
+        <div class="grade a"><div class="g">A</div><div class="range">80 – 89</div><div class="desc">상위 등급<br>주요 기관 스카우트 대상</div></div>
+        <div class="grade b"><div class="g">B</div><div class="range">70 – 79</div><div class="desc">중급<br>일반 심층 작전 가능</div></div>
+        <div class="grade c"><div class="g">C</div><div class="range">50 – 69</div><div class="desc">하위<br>저위험 운반·보조 임무</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DISTRICTS ═══════════ -->
+<section id="district">
+  <div class="wrap">
+    <div class="sec-label">Districts</div>
+    <h2 class="sec-title">하늘 위의 사람들, 땅 위의 사람들</h2>
+    <p class="sec-desc">르셰 연방의 도시는 수직으로 나뉘어 있다. 다른 구역의 시민도 셀레스티아를 방문하고 통근할 수 있지만, 계층에 대한 인식은 공기처럼 자연스럽게 존재한다.</p>
+    <div class="divider"></div>
+    <div class="district-list reveal">
+      <div class="district">
+        <h3>셀레스티아<small>CELESTIA · 수도</small></h3>
+        <p>공중에 떠 있는 특구형 수도이자 연구 도시. 행정·연구·방어의 심장부다. 겉보기엔 "예쁜 하늘 도시 관광지"지만, 실상은 아카샤 코어를 품은 데이터·에너지 시설의 중추. 연구 지역과 핵심 기술에는 일반인 접근이 불가하다.</p>
+      </div>
+      <div class="district">
+        <h3>그라운드<small>GROUND</small></h3>
+        <p>일반 시민이 거주하는 대도시권. 상업과 생활의 중심으로, 이 세계의 '보통의 삶'이 흐르는 곳.</p>
+      </div>
+      <div class="district">
+        <h3>아우터 링<small>OUTER RING</small></h3>
+        <p>산업·물류·공장 지대. 도시를 돌아가게 만드는 손과 발.</p>
+      </div>
+      <div class="district sealed">
+        <h3>봉인구역<small>DEAD ZONE · 출입금지</small></h3>
+        <p>대붕괴 당시 붕괴되어 봉인된 심층 잔해 지역. 무엇이 남아 있는지는, 출입해 본 자만이 안다.</p>
+      </div>
+      <div class="district">
+        <h3>위성도시군<small>SATELLITE CITIES</small></h3>
+        <p>연방 소속의 다른 도시들. 셀레스티아만큼 발전하지 못했으며, 수도에 자원과 인력을 공급한다.</p>
+      </div>
+    </div>
+    <p class="strata reveal">사람들은 자연스럽게 말한다 — <b>"하늘 위 사람들"</b>과 <b>"땅 위 사람들"</b>이라고.</p>
+  </div>
+</section>
+
+<!-- ═══════════ SHADOW ═══════════ -->
+<section id="shadow" class="dark">
+  <div class="wrap">
+    <div class="sec-label">The Other Side</div>
+    <h2 class="sec-title">도시의 이면</h2>
+    <p class="sec-desc">셀레스티아의 아름다움에는 전부 용도가 있다. 알아채는 사람이 드물 뿐이다.</p>
+    <div class="divider"></div>
+    <div class="shadow-grid reveal">
+      <div class="shadow-card">
+        <h3>하늘정원</h3>
+        <div class="front">도시 외곽의 거대한 공중 정원</div>
+        <p>겉모습은 끝없이 펼쳐진 꽃밭. 실상은 마나 농도 정화 필터이자 <b>시민 동선 감시 구역</b> — 꽃잎 하나하나가 미세 센서다.</p>
+      </div>
+      <div class="shadow-card">
+        <h3>기상성당</h3>
+        <div class="front">매일 정시에 노을을 출력하는 백색 첨탑</div>
+        <p>인공 노을, 인공 비, 인공 별빛. 대형 사고나 심층 붕괴 소식이 있는 날이면, 하늘의 연출은 <b>의도적으로 더 화려해진다</b>.</p>
+      </div>
+      <div class="shadow-card">
+        <h3>공중철도 '루미나 라인'</h3>
+        <div class="front">도시를 원형으로 도는 투명 고가철도</div>
+        <p>야간에는 궤도가 스스로 빛나 하늘의 고리가 되는 관광 명소. 그러나 사고가 나면 차량을 구출하는 대신, <b>해당 구간을 도시에서 분리해 낙하 폐기</b>할 수 있게 설계되어 있다.</p>
+      </div>
+      <div class="shadow-card">
+        <h3>재난기념축제</h3>
+        <div class="front">대붕괴 극복을 기념하는 연례 축제</div>
+        <p>빛의 향연, 아이돌 공연, 퍼레이드. 피해자에 대한 추모는 어디에도 없다. 진짜 목적은 단 하나의 메시지를 반복해 주입하는 것 — <b>"현재 체제가 없다면, 우리는 다시 멸망한다."</b></p>
+      </div>
+    </div>
+    <p class="dark-quote">이 도시에서 하늘은 진짜가 아니다.<br>노을도, 비도, 별빛도 — <span>정시에 출력될 뿐이다.</span></p>
+  </div>
+</section>
+
+<!-- ═══════════ DEEP ═══════════ -->
+<section id="deep" class="dark" style="background:var(--night-soft)">
+  <div class="wrap">
+    <div class="sec-label">The Depths</div>
+    <h2 class="sec-title">심층 공략</h2>
+    <p class="sec-desc">심층은 중앙관리청을 통한 입찰·허가제로 입장한다. 최초 발생 위치는 무작위지만, 안정화에 성공하면 고정 구역이 되어 주기적으로 관리·채굴할 수 있다.</p>
+    <div class="divider"></div>
+    <div class="deep-hero reveal">
+      <div class="deep-rule">
+        <div class="no">RULE 01</div>
+        <h4>속전속결</h4>
+        <p>마나 침식도가 급증하기 전에, 압도적 화력으로 단기 섬멸하는 것이 제1원칙.</p>
+      </div>
+      <div class="deep-rule">
+        <div class="no">RULE 02</div>
+        <h4>부수면서 캔다</h4>
+        <p>홀로그램 간판, 서버 탑 — 지형지물을 파괴하면 은닉된 아카샤 파편이 드랍된다. 전투와 채굴은 동시 진행.</p>
+      </div>
+      <div class="deep-rule">
+        <div class="no">RULE 03</div>
+        <h4>글리치 주의</h4>
+        <p>중력 역전, 텍스처 붕괴 같은 공간 오류 현상. 발생하면 직감적으로 회피할 것.</p>
+      </div>
+      <div class="deep-rule">
+        <div class="no">RULE 04</div>
+        <h4>보스 코어 적출</h4>
+        <p>대규모 웨이브를 섬멸하고 보스의 코어(고순도 아카샤 원석)를 강제 적출하면 심층은 안정화된다.</p>
+      </div>
+    </div>
+    <div class="biome reveal">
+      <div class="biome-card casino">
+        <h3>환락 · 카지노계</h3>
+        <div class="en">NEON PLEASURE DISTRICT</div>
+        <p><b>출현지</b> — 구시대 클럽, 버려진 거대 카지노, 쾌락 구역</p>
+        <p><b>존재</b> — 홀로그램 무희 몬스터, 잭팟-머신건 골렘, 도파민 과부하 변이체</p>
+        <p>슬롯머신형 몬스터를 부수면 동전과 칩 — 아카샤 파편이 비처럼 쏟아진다.</p>
+      </div>
+      <div class="biome-card factory">
+        <h3>팩토리계</h3>
+        <div class="en">ROGUE FACTORY</div>
+        <p><b>출현지</b> — 버려진 자동화 공장, 무기 폐기장, 지하 동력실</p>
+        <p><b>존재</b> — 폭주한 AI 생산라인, 사이보그 융합체, 용접 레이저 드론 떼</p>
+        <p>시뻘건 용광로와 스파크. 광역기 효율이 극대화되는, 기계 절단의 쾌감.</p>
+      </div>
+      <div class="biome-card archive">
+        <h3>아카이브 · 데이터계</h3>
+        <div class="en">DEAD ARCHIVE</div>
+        <p><b>출현지</b> — 구시대 서버실, 버려진 연구소, 홀로그램 도서관</p>
+        <p><b>존재</b> — 데이터-고스트(해커들의 잔류 사념), 시큐리티 웜, 백색소음 군단</p>
+        <p>눈이 시린 푸른 데이터 라인, 화면 글리치, 유리와 스크린이 부서지는 연출.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FACTIONS ═══════════ -->
+<section id="faction" class="bg-alt">
+  <div class="wrap">
+    <div class="sec-label">Factions</div>
+    <h2 class="sec-title">도시를 움직이는 네 개의 축</h2>
+    <div class="divider"></div>
+    <div class="faction-grid reveal">
+      <div class="faction f-admin">
+        <div class="en">Central Administration</div>
+        <h3>중앙관리청</h3>
+        <p>공중 특별구에 자리한 연방의 실질 권력. 심층 출입 허가, 에이전트 면허, 재난 경보, 그리고 <b>데이터 통제</b>까지 — 도시의 모든 것이 이곳을 거친다. 정점에는 상임의장이 있다.</p>
+      </div>
+      <div class="faction f-police">
+        <div class="en">Celestia Security Bureau</div>
+        <h3>셀레스티아 치안국</h3>
+        <p>전원 에이전트 출신으로 구성된 경찰 조직. 범죄자들이 심층으로 도주하는 일이 잦아 경찰의 심층 진입도 빈번하다. 일부 부패는 있지만, 대부분은 원리원칙과 사명감으로 움직인다.</p>
+      </div>
+      <div class="faction f-academy">
+        <div class="en">National Celestia Academy</div>
+        <h3>국립 셀레스티아 아카데미</h3>
+        <p>공명률 50 이상을 국가가 선별해 교육하는 기관. 입학은 20세 이상. 심층 대응, 재난 행정, 아카샤 공학을 가르치며, 나이보다 능력 위주 — 필요하면 교수와 1:1 수업도 이뤄진다.</p>
+      </div>
+      <div class="faction f-guild">
+        <div class="en">Guild</div>
+        <h3>길드</h3>
+        <p>정부 허가를 받아 에이전트를 관리하는 기업. 심층 입찰과 공략의 실무를 맡는다. 수인들이 모인 길드 <b>'베헤못'</b>이 대표적.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CHARACTERS ═══════════ -->
+<section id="characters" class="char-section">
+  <div class="wrap">
+    <div class="sec-label">Characters</div>
+    <h2 class="sec-title">셀레스티아의 사람들</h2>
+    <p class="sec-desc">하늘 도시에서 살아가는 열아홉 명. 치안국의 경찰들, 관리청의 공무원들, 아카데미의 학생과 교수들, 그리고 수인 길드의 에이전트들.</p>
+    <div class="divider"></div>
+
+    <!-- 치안국 -->
+    <div class="group-head g-police reveal">
+      <div class="bar"></div>
+      <h3>셀레스티아 치안국</h3>
+      <div class="en">SECURITY BUREAU</div>
+    </div>
+    <div class="char-grid reveal">
+      <div class="char">
+        <div class="photo"><span class="role r-police">치안국</span><img src="캐릭터/니키.webp" alt="니키" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>니키</h4><span class="meta">29세 · 182cm</span></div>
+          <div class="epithet">능글맞은 냉소가 · 선임치안관</div>
+          <p class="desc">비꼬기와 농담 섞인 비아냥이 기본값인 여우. 몸으로 돌진하기보다 머리를 굴리는 타입으로, 냄새와 잔류 마나로 추적하고 상대의 감각을 교란한다. 마음을 잘 열지 않지만 한번 신뢰하면 충직하고, 피해자 앞에서는 농담이 줄어든다.</p>
+          <div class="chips"><span class="race">여우 수인</span><span class="mbti">ENTP</span><span>환각 교란 · 추적</span><span>트릭식스 마나 리볼버</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-police">치안국</span><img src="캐릭터/로웰.webp" alt="로웰" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>로웰</h4><span class="meta">24세 · 190cm</span></div>
+          <div class="epithet">건강한 햇살 경찰 · 신입치안관</div>
+          <p class="desc">모르는 사람과도 금세 친해지는 다정한 사교왕. 어린아이에게도 존댓말을 쓰는 투철한 직업의식의 소유자로, 감정의 파장과 미세한 소리를 감지한다. 베헤못의 유키가 친형. 사실 당근은 별로 안 좋아한다.</p>
+          <div class="chips"><span class="race">롭이어 토끼 수인</span><span class="mbti">ENFJ</span><span>감정 감지 · 보호막</span><span>루미너스 커프 바인더</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-police">치안국</span><img src="캐릭터/빈센트.webp" alt="빈센트" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>빈센트</h4><span class="meta">35세 · 190cm</span></div>
+          <div class="epithet">과묵한 현장 지휘관 · 특수대응팀장</div>
+          <p class="desc">말수가 적고 표정 변화가 없어 차가워 보이지만, 실은 현장 인원의 생존을 가장 먼저 계산하는 지휘관. 심층 범죄, 마나 폭주처럼 일반 순찰팀이 감당하기 어려운 현장을 몸으로 버틴다.</p>
+          <div class="chips"><span class="mbti">ISTJ</span><span>전자기 방벽 · 제압</span><span>제로포인트 실드 + 아크 라이플</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-police">치안국</span><img src="캐릭터/에덴.webp" alt="에덴" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>에덴</h4><span class="meta">27세 · 192cm</span></div>
+          <div class="epithet">웃는 얼굴의 백호 · 특수기동대 에이스</div>
+          <p class="desc">겉은 예의 바른 어른, 실은 승부욕 강한 포식자. 거짓말과 허세를 즉시 눈치채지만 지적하지 않고, 웃는 얼굴로 부드럽게 — 도망칠 곳이 없게 몰아간다. 상대의 움직임을 본능적으로 멈추게 하는 포식자성 공명의 소유자.</p>
+          <div class="chips"><span class="race">백호 수인</span><span class="mbti">ESTP</span><span>신체 강화 · 위압</span><span>화이트팡 클로 모듈</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 중앙관리청 -->
+    <div class="group-head g-admin reveal">
+      <div class="bar"></div>
+      <h3>중앙관리청</h3>
+      <div class="en">CENTRAL ADMINISTRATION</div>
+    </div>
+    <div class="char-grid reveal">
+      <div class="char">
+        <div class="photo"><span class="role r-admin">관리청</span><img src="캐릭터/아도니스.webp" alt="아도니스" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>아도니스</h4><span class="meta">40세 · 188cm</span></div>
+          <div class="epithet">도시의 지배자 · 상임의장</div>
+          <p class="desc">상임위원회 만장일치로 선출된 도시의 수장. 아카샤 공학과 재난 행정에 정통한 이공계 엘리트로, 냉정한 분석과 위기관리 능력은 최고 수준이다. 시민들의 평판은 '믿을 만한 지도자' — 완벽하게 사회화된 소시오패스라는 사실은, 아무도 모른다.</p>
+          <div class="chips"><span class="mbti">ENTJ</span><span>아카샤 공학 · 위기관리</span><span>관리청 최상층 거주</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-admin">관리청</span><img src="캐릭터/아스터.webp" alt="아스터" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>아스터</h4><span class="meta">42세 · 192cm</span></div>
+          <div class="epithet">정의로운 어른 · 국장</div>
+          <p class="desc">전직 심층 탐사 에이전트. 탁상행정에 질려 "직접 바꾸겠다"며 관리청에 뛰어든 호탕한 행동파로, 지금의 관리청이 '말이 통하는 곳'이 된 최대 원인. 부당하게 짓밟히는 꼴은 절대 못 넘기고, 문짝을 부수는 일이 잦아 오스카에게 늘 잔소리를 듣는다.</p>
+          <div class="chips"><span class="mbti">ENFJ</span><span>전직 에이전트</span><span>현장에 가장 먼저 뛰어드는 국장</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-admin">관리청</span><img src="캐릭터/오스카.webp" alt="오스카" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>오스카</h4><span class="meta">38세 · 181cm</span></div>
+          <div class="epithet">우아한 독설가 · 실장</div>
+          <p class="desc">아스터가 부순 문짝의 배상 서류와 사과문을 준비하는 사람. 관리청 최속의 업무 처리 속도를 자랑하는 실무 괴물로, 달래는 말보다 찌르는 말이 먼저 나가는데 이상하게도 대부분 맞는 말이다. 아스터를 진심으로 존경하지만, 면전에서 "국장님은 제발 생각이라는 걸 하고 움직이십시오"라고 말할 수 있는 몇 안 되는 인물.</p>
+          <div class="chips"><span class="race">양 수인</span><span class="mbti">INTJ</span><span>실무 전반</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-admin">관리청</span><img src="캐릭터/테드.webp" alt="테드" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>테드</h4><span class="meta">36세 · 184cm</span></div>
+          <div class="epithet">능글맞은 엘리트 · 팀장</div>
+          <p class="desc">군더더기 없는 업무, 최상의 직장 평가, 단정한 이미지 — 그 안쪽은 조금 음침하다. 상대의 허점을 발견하면 조용히 파고들어 원하는 방식으로 천천히 길들이는 타입. 아슬아슬한 농담을 던져놓고 남들 앞에선 시치미를 뚝 뗀다.</p>
+          <div class="chips"><span class="mbti">ENTP</span><span>엘리트 실무</span><span>나른한 반존대</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-admin">관리청</span><img src="캐릭터/헤이즐.webp" alt="헤이즐" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>헤이즐</h4><span class="meta">32세 · 179cm</span></div>
+          <div class="epithet">햇살 선배 · 선임행정관</div>
+          <p class="desc">차분하고 다정하지만, 안 되는 건 안 된다고 말하는 부드러운 철벽. 만만해 보이는 인상 탓에 진상 민원인을 자주 만나는데, 필요하면 상당히 독해진다. 주머니엔 늘 사탕과 과자 — 조용하다 싶으면 구석에서 뭔가 까먹고 있어 별명은 '다람쥐'.</p>
+          <div class="chips"><span class="mbti">INFJ</span><span>다정한 원칙주의</span><span>상냥함 ≠ 만만함</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-admin">관리청</span><img src="캐릭터/유우.webp" alt="유우" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>유우</h4><span class="meta">25세 · 176cm</span></div>
+          <div class="epithet">무해한 사고뭉치 · 행정관</div>
+          <p class="desc">결재 파일 잘못 올리기, 회의 시간 착각 — 관리청 소문난 사고뭉치. 하지만 아카샤 데이터의 패턴을 읽는 감각만은 천재적이라 아무도 자를 수 없다. 문서 실수는 많은데 사건의 핵심은 누구보다 빨리 짚어내고, 혼나도 타격이 없다.</p>
+          <div class="chips"><span class="mbti">ENFP</span><span>데이터 패턴 해석</span><span>초긍정 마이페이스</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 아카데미 -->
+    <div class="group-head g-academy reveal">
+      <div class="bar"></div>
+      <h3>국립 셀레스티아 아카데미</h3>
+      <div class="en">NATIONAL ACADEMY</div>
+    </div>
+    <div class="char-grid reveal">
+      <div class="char">
+        <div class="photo"><span class="role r-academy">교수</span><img src="캐릭터/카밀.webp" alt="카밀" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>카밀</h4><span class="meta">35세 · 195cm</span></div>
+          <div class="epithet">상냥한 폭군 교관 · 전투훈련 교수</div>
+          <p class="desc">"에이전트 신체는 이 정도로는 안 죽는다"를 웃으면서 말하는 악마 교관. 상대를 때려눕히기보다 중력으로 움직임을 묶고 버티게 만들어 한계를 끌어올린다. 왼쪽 눈은 과거 심층에서 잃었고, 그것이 현장 은퇴의 계기가 됐다.</p>
+          <div class="chips"><span class="mbti">ESTP</span><span>신체 강화 · 중력 압박</span><span>그라비톤 브레이서</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-academy">교수</span><img src="캐릭터/리안.webp" alt="리안" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>리안</h4><span class="meta">34세 · 183cm</span></div>
+          <div class="epithet">느긋한 미소의 복수자 · 공학 교수</div>
+          <p class="desc">늘 웃는 얼굴로 학생들과 가까운 아카샤 공학자. 그 미소 뒤에는 심층에서 누나를 잃은 끝없는 저주가 있다. 에이전트 능력이 없어 직접 심층을 부술 수 없기에 — 자신 대신 저곳을 부숴 줄 아이들을 기른다.</p>
+          <div class="chips"><span class="mbti">INTP</span><span>아카샤 공학 · 장비 설계</span><span>공명 해석</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-academy">3학년</span><img src="캐릭터/에반.webp" alt="에반" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>에반</h4><span class="meta">22세 · 186cm</span></div>
+          <div class="epithet">무접촉 완벽주의자 · 3학년</div>
+          <p class="desc">타인과의 신체 접촉을 극도로 싫어하는 냉정한 원칙주의자. 공간 좌표를 고정해 손대지 않고 제압하는 능력은 그 결벽과 완벽하게 맞물린다. 성적도 능력도 탑 티어, 여학우 선정 '제일 섹시한 남자' 1위 — 본인은 연애에 전혀 관심이 없다.</p>
+          <div class="chips"><span class="mbti">INTJ</span><span>공간 고정 · 방어장</span><span>제로포인트 바인더</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-academy">2학년</span><img src="캐릭터/루카.webp" alt="루카" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>루카</h4><span class="meta">21세 · 181cm</span></div>
+          <div class="epithet">의리 있는 문제아 · 2학년</div>
+          <p class="desc">수업 태도 불량, 늘 흐트러진 교복 — 하지만 실전 훈련에선 누구보다 먼저 앞으로 뛰어나간다. 몸 안의 마나를 순간 가열해 폭발적인 속도와 파괴력을 내는 적열공명의 소유자로, 돌파력은 동학년 최상위권. 약한 사람을 괴롭히는 장면을 보면 본인이 먼저 사고를 친다.</p>
+          <div class="chips"><span class="mbti">ESTP</span><span>적열공명 · 화염 가속</span><span>이그니스 펄스 너클</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-academy">1학년</span><img src="캐릭터/클로버.webp" alt="클로버" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>클로버</h4><span class="meta">20세 · 174cm</span></div>
+          <div class="epithet">순한 얼굴의 행운아 · 1학년</div>
+          <p class="desc">잘 웃는 순한 신입생인데, 이상하게 위험한 상황에서 혼자만 운 좋게 빠져나온다. 실은 주변 마나의 흐름을 미세하게 비틀어 아군에게 유리한 우연을 끌어오는 능력 — 본인은 재능을 실감하지 못하고 "어쩌다 보니 됐어요"라고 말해, 노력파 루카의 속을 긁는다.</p>
+          <div class="chips"><span class="mbti">INFP</span><span>행운 편향 · 회복 보조</span><span>라스트 세이브 브로치</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 베헤못 -->
+    <div class="group-head g-guild reveal">
+      <div class="bar"></div>
+      <h3>수인 길드 '베헤못'</h3>
+      <div class="en">GUILD BEHEMOTH</div>
+    </div>
+    <div class="char-grid reveal">
+      <div class="char">
+        <div class="photo"><span class="role r-guild">길드장</span><img src="캐릭터/가넷.webp" alt="가넷" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>가넷</h4><span class="meta">32세 · 185cm</span></div>
+          <div class="epithet">계산적인 브레인 · 길드장</div>
+          <p class="desc">겉은 가볍고 도발적이지만, 손익 계산은 누구보다 냉정한 책략가. 본인은 부정하지만 길드를 매우 아끼며, 위험이 닥치면 목숨을 던져 길드원을 구한다. '우리 편'은 끝까지 챙기면서도 그걸 의리라 부르지 않는다 — "장기 투자"라고 말할 뿐.</p>
+          <div class="chips"><span class="race">검은 개 수인</span><span class="mbti">ENTJ</span><span>전술 설계 · 암습</span><span>블러드라인 마나 와이어</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-guild">베헤못</span><img src="캐릭터/유키.webp" alt="유키" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>유키</h4><span class="meta">27세 · 180cm</span></div>
+          <div class="epithet">싸가지없는 천재 · 에이전트</div>
+          <p class="desc">잘생긴 얼굴로 늘 삐딱하게 웃는, 매사 귀찮아하는 천재. 상대의 공격이 시작되기 전 마나의 흔들림을 읽고 피하는 감각이 뛰어나다. 유일하게 사이좋은 사람은 동생 로웰뿐 — 공들여 세팅한 머리를 만지는 건 절대 용서하지 않는다.</p>
+          <div class="chips"><span class="race">롭이어 수인</span><span class="mbti">ENTP</span><span>공명 예측 · 고속 회피</span><span>블링크 네온 카타르</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-guild">베헤못</span><img src="캐릭터/제이드.webp" alt="제이드" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>제이드</h4><span class="meta">31세 · 193cm</span></div>
+          <div class="epithet">장난스러운 책략가 · 에이전트</div>
+          <p class="desc">늘 농담으로 상황을 훑으며 한발 뒤로 빠져 있다가, 아주 정확한 타이밍에 직진하는 곰. 말투 탓에 가벼워 보이지만 두뇌 회전과 계산력은 우주 최강급으로, 전장의 흐름을 읽어 가장 적은 피해로 이기는 길을 찾아낸다.</p>
+          <div class="chips"><span class="race">곰 수인</span><span class="mbti">ESTP</span><span>괴력 · 전장 계산</span><span>블랙홀 해머</span></div>
+        </div>
+      </div>
+      <div class="char">
+        <div class="photo"><span class="role r-guild">베헤못</span><img src="캐릭터/휴고.webp" alt="휴고" loading="lazy"></div>
+        <div class="body">
+          <div class="name-row"><h4>휴고</h4><span class="meta">33세 · 189cm</span></div>
+          <div class="epithet">충직한 하운드 · 추적·호위 담당</div>
+          <p class="desc">말보다 행동이 앞서는 무심한 듯 다정한 탱커. 후각과 마나 잔향으로 목표를 찾아내고, 전투에선 전방에서 묵묵히 버틴다. 현실적이고 논리적이지만 '내 사람'의 부탁만은 거절하지 못하고, 완벽하게 해낸다.</p>
+          <div class="chips"><span class="race">사냥개 수인</span><span class="mbti">ISTP</span><span>후각 추적 · 근접 탱킹</span><span>하운드 앵커 실드</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="bg"></div>
+  <div class="veil"></div>
+  <div class="inner">
+    <p class="line">오늘도 기상성당은 정시에 노을을 출력하고,<br>
+    루미나 라인은 하늘에 빛의 고리를 그린다.<br>
+    이 완벽한 도시에 오신 것을 환영합니다.</p>
+    <div class="credit">CELESTIA 2077 · LUXHE FEDERATION</div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
